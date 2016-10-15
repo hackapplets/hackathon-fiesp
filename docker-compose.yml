@@ -1,0 +1,9 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: mix run --no-halt
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/fiesp
