@@ -23,6 +23,14 @@ defmodule Fiesp.Database.Report do
   end
 
   @doc """
+  Get all the reports in one specific line
+  """
+  def reports(area) do
+    table(@name)
+    |> get_intersecting(area, %{index: "location"})
+  end
+
+  @doc """
   Initialize the table and create the indices
   """
   def init do
