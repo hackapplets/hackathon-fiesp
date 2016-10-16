@@ -35,10 +35,24 @@ defmodule Fiesp.Database.Report do
   """
   def init do
     # Create the table
-    table_create @name
+    table_create(@name) |> Connection.run
 
     # Initialize the indices
     table(@name)
     |> index_create("location", %{geo: true})
+    |> Connection.run
+  end
+
+  @doc """
+  Destroy the table
+  """
+  def destroy do
+    # Check the ENV
+    case Mix.env do
+      "prod" -> false
+      _ ->
+        # Anyway, destroy it!
+        table(@name) |> delete |> Connection.run
+    end
   end
 end
