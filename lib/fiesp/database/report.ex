@@ -31,6 +31,11 @@ defmodule Fiesp.Database.Report do
   end
 
   @doc """
+  Check if there is any report in an area
+  """
+  def report?(area), do: count(reports(area)) > 0
+
+  @doc """
   Initialize the table and create the indices
   """
   def init do

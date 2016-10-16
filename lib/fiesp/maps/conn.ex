@@ -17,7 +17,7 @@ defmodule Fiesp.Maps.Conn do
     req = build("directions", Keyword.merge([destination: dest, origin: origin], opts)) |> HTTPoison.get!
      
     # Parse the Body
-    req.body |> Poison.decode!
+    req.body |> Poison.decode!(as: %Fiesp.Maps.Directions{})
   end
 
   # Build the request for some of the Maps API
