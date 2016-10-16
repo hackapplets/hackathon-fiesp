@@ -1,0 +1,15 @@
+#
+# FROM bitwalker/alpine-erlang
+# FROM alpine:edge
+# RUN apk — update add postgresql-client erlang erlang-sasl erlang-crypto erlang-syntax-tools && rm -rf /var/cache/apk/*
+FROM elixir
+
+# ENV
+EXPOSE 80 
+ENV MIX_ENV=prod
+
+#
+ADD ./rel/fiesp /
+
+# Start command
+CMD /bin/fiesp foreground

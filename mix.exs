@@ -31,6 +31,7 @@ defmodule Fiesp.Mixfile do
     [{:cowboy, "~> 1.0.0"},
      {:plug, "~> 1.0"},
      {:poison, "~> 2.0"},
+     {:exrm, "~> 1.0"},
      {:rethinkdb, "~> 0.4"},
      {:cors_plug, "~> 1.1"},
      {:httpoison, "~> 0.9.0"}]

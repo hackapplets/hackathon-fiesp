@@ -9,7 +9,7 @@ defmodule Fiesp do
 
     children = [
       # Define workers and child supervisors to be supervised
-      Plug.Adapters.Cowboy.child_spec(:http, Fiesp.Router, [], [port: 8000]),
+      Plug.Adapters.Cowboy.child_spec(:http, Fiesp.Router, [], [port: 80]),
       worker(Fiesp.Database.Connection, [[host: "rethinkdb", port: 28015]])
     ]
 
