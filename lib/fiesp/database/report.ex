@@ -1,6 +1,6 @@
-defmodule Fiesp.Database.Incident do
+defmodule Fiesp.Database.Report do
   @moduledoc """
-  Persistent Incidents
+  Persistent Reports
   """
 
   # Alias
@@ -10,10 +10,10 @@ defmodule Fiesp.Database.Incident do
   import RethinkDB.Query
 
   # Table name
-  @name "incidents"
+  @name "reports"
 
   @doc """
-  Creates a new incident into the specific area
+  Creates a new report into the specific area
   """
   def create(desc, lat, lng) do
     # 

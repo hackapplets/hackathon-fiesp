@@ -1,4 +1,4 @@
-defmodule Fiesp.Routers.Incident do
+defmodule Fiesp.Routers.Reports do
   @moduledoc  """
   """
   # Using the Router
@@ -10,18 +10,18 @@ defmodule Fiesp.Routers.Incident do
   plug :dispatch
   plug CORSPlug
   
-  # Create a new incident
+  # Create a new report
   post "/" do
     # Get location from data
     location = conn.params["location"]
 
     #
-    Fiesp.Database.Incident.create conn.params["ocurrency"], location["lat"], location["lng"]
+    Fiesp.Database.Report.create conn.params["ocurrency"], location["lat"], location["lng"]
 
     # Send the success response
     conn
     |> put_resp_content_type("application/json")
-    |> send_resp(201, Poison.encode!(%{type: "success", message: "incident reported"}))
+    |> send_resp(201, Poison.encode!(%{type: "success", message: "reporte created"}))
   end
 
   # 404 Route

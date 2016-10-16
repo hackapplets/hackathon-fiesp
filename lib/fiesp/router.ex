@@ -7,7 +7,7 @@ defmodule Fiesp.Router do
   plug :dispatch
 
   # Forward requests
-  forward "/incidents", to: Fiesp.Routers.Incident
+  forward "/reports", to: Fiesp.Routers.Reports
   
   # 404 Route
   match _ do
