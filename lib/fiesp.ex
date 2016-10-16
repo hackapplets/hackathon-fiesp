@@ -5,11 +5,12 @@ defmodule Fiesp do
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
   # for more information on OTP Applications
   def start(_type, _args) do
-    # import Supervisor.Spec
+    import Supervisor.Spec
 
     children = [
       # Define workers and child supervisors to be supervised
-      Plug.Adapters.Cowboy.child_spec(:http, Fiesp.Router, [], [port: 8000])
+      Plug.Adapters.Cowboy.child_spec(:http, Fiesp.Router, [], [port: 8000]),
+      worker(Fiesp.Database.Connection, [[host: "rethinkdb", port: 28015]])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

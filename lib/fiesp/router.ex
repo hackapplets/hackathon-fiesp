@@ -5,6 +5,9 @@ defmodule Fiesp.Router do
   # Plug things
   plug :match
   plug :dispatch
+
+  # Forward requests
+  forward "/incidents", to: Fiesp.Routers.Incident
   
   # 404 Route
   match _ do

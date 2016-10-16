@@ -7,3 +7,11 @@ services:
       - 8000:8000
     volumes:
       - ./:/fiesp
+    links:
+      - rethinkdb
+    depends_on:
+      - rethinkdb
+  rethinkdb:
+    image: rethinkdb
+    ports:
+      - 8080:8080
