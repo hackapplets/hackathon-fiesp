@@ -12,7 +12,7 @@ defmodule Fiesp.Maps.Conn do
   @doc """
   Build and execute the `directions` resource
   """
-  def directions(dest, origin, opts \\ []) do
+  def directions(origin, dest, opts \\ []) do
     # Request it
     req = build("directions", Keyword.merge([destination: dest, origin: origin], opts)) |> HTTPoison.get!
      
